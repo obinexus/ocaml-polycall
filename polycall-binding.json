@@ -1,0 +1,11 @@
+{
+  "name": "ocaml-polycall",
+  "version": "1.5.0",
+  "language": "OCaml",
+  "adapter": true,
+  "ffi": true,
+  "config": "ocaml-polycallrc",
+  "core": "../../src",
+  "license": "MIT OBINexus",
+  "author": "Nnamdi Michael Okpala"
+}
