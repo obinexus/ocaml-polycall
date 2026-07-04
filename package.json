@@ -1,0 +1,77 @@
+{
+  "name": "@obinexusltd/ocaml-polycall",
+  "version": "1.0.0",
+  "description": "OCaml source binding for libpolycall 1.5",
+  "main": "index.js",
+  "type": "commonjs",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json",
+    "./src/*": "./src/*",
+    "./include/*": "./include/*",
+    "./generated/*": "./generated/*",
+    "./dist/*": "./dist/*",
+    "./examples/*": "./examples/*",
+    "./tests/*": "./tests/*",
+    "./scripts/*": "./scripts/*",
+    "./config": "./ocaml-polycallrc",
+    "./manifest": "./polycall-binding.json"
+  },
+  "files": [
+    "index.js",
+    "dune-project",
+    "src/",
+    "include/",
+    "generated/",
+    "dist/",
+    "examples/",
+    "tests/",
+    "scripts/",
+    "Makefile",
+    "ocaml-polycallrc",
+    "polycall-binding.json",
+    "README.md",
+    "TODO.md",
+    "LICENSE"
+  ],
+  "directories": {
+    "lib": "src",
+    "src": "src",
+    "include": "include",
+    "generated": "generated",
+    "dist": "dist",
+    "example": "examples",
+    "test": "tests",
+    "scripts": "scripts"
+  },
+  "scripts": {
+    "build": "make",
+    "build:ocaml": "make ocaml",
+    "test": "make test && make test-ocaml-if-available && npm run verify:dry && npm run test:package",
+    "test:ocaml": "make test-ocaml",
+    "test:package": "node tests/package.test.js",
+    "verify:dry": "make verify-dry",
+    "verify": "npm test",
+    "prepack": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obinexus/ocaml-polycall.git"
+  },
+  "keywords": [
+    "libpolycall",
+    "polycall",
+    "ocaml",
+    "ffi",
+    "native"
+  ],
+  "author": "Nnamdi Michael Okpala <okpalan@protonmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/obinexus/ocaml-polycall/issues"
+  },
+  "homepage": "https://github.com/obinexus/ocaml-polycall#readme"
+}

@@ -1,0 +1,12 @@
+/_build/
+/build/
+/lib/
+*.a
+*.cma
+*.cmi
+*.cmo
+*.cmx
+*.cmxa
+*.exe
+*.o
+*.obj

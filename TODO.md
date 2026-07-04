@@ -1,14 +1,13 @@
-# TODO — ocaml-polycall (OCaml)
+# TODO — ocaml-polycall
 
-Status: 🧩 scaffolded adapter for libpolycall 1.5.0. Honestly not yet wired to
-the core — this file tracks the remaining work. Rolled up in
-[../../docs/release/TODO-1.5.md](../../docs/release/TODO-1.5.md).
+Status: implemented OCaml source adapter for libpolycall 1.5.
 
-- [x] Folder structure, manifest, and `ocaml-polycallrc` (shared schema)
-- [ ] Locate/generate OCaml FFI bindings for `polycall_ffi.h`
-- [ ] Implement the thin adapter in `src/` (idioms -> `polycall_ffi_run_config`)
-- [ ] Add a runnable example under `examples/`
-- [ ] Add a smoke test under `tests/`
-- [ ] Confirm `scripts/verify-dry.sh` passes (no core duplication)
-
-Do not add config parsing or runtime logic here — adapt the core only.
+- [x] Exact thin shim over `polycall_ffi_run_config(config_path, 1)`
+- [x] OCaml runtime C stub and typed `.mli` interface
+- [x] Status-returning and `Polycall.Error` API variants
+- [x] Dune library metadata and runnable example
+- [x] Native mock contract test and OCaml/C smoke test
+- [x] npm metadata, directory index, updated README, and MIT license
+- [ ] Install OCaml and execute `npm run test:ocaml` on this machine
+- [ ] Run an end-to-end example against a built libpolycall shared core
+- [ ] Publish `@obinexusltd/ocaml-polycall` publicly on npm

@@ -1,0 +1,10 @@
+(library
+ (name ocaml_polycall)
+ (public_name ocaml-polycall)
+ (wrapped false)
+ (modules polycall)
+ (foreign_stubs
+  (language c)
+  (names ocaml_polycall ocaml_polycall_stubs)
+  (flags (:standard -I../include -I../generated)))
+ (c_library_flags -lpolycall))
