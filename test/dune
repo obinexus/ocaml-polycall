@@ -1,0 +1,21 @@
+; Runs against the REAL libpolycall found by pkg-config (the dynamic loader
+; must reach libpolycall.so.1 at run time, e.g. LD_LIBRARY_PATH) and the
+; `polycall` CLI on PATH or in POLYCALL_CLI.
+
+(test
+ (name test_polycall)
+ (modules test_polycall)
+ (libraries ocaml-polycall threads.posix unix)
+ (deps
+  ../ocaml-polycallrc
+  ../examples/ocaml-polycallrc))
+
+; OCaml 5 domains: parallel use of the binding and the runtime-lock release
+; of a blocked receive under stop-the-world collections.
+
+(test
+ (name test_domains)
+ (modules test_domains)
+ (enabled_if
+  (>= %{ocaml_version} 5.0))
+ (libraries ocaml-polycall unix))

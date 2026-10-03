@@ -1,0 +1,27 @@
+# Valgrind suppressions for leaks INSIDE the OCaml 5 runtime (not in
+# ocaml-polycall or libpolycall): when a domain terminates, OCaml 5.2 does
+# not free that domain's fiber stack cache nor the finaliser table it
+# allocated for Gc.finalise. Both reproduce with a pure-OCaml program that
+# never touches polycall (spawn 4 domains, register a finaliser on a value
+# that is still alive when the domain exits, join, exit):
+#   caml_alloc_stack_cache <- domain_create        (40 bytes per domain)
+#   caml_stat_alloc <- generic_final_register      (720 bytes per domain)
+# Only these two allocation sites are suppressed, and only as definite leaks;
+# every other error or leak still fails `make test-valgrind`.
+{
+   ocaml5-domain-stack-cache-not-freed-at-domain-exit
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:caml_alloc_stack_cache
+   fun:domain_create
+}
+{
+   ocaml5-final-table-not-freed-at-domain-exit
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   ...
+   fun:generic_final_register
+   fun:caml_final_register
+}
