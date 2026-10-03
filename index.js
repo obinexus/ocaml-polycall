@@ -1,14 +1,17 @@
 'use strict';
 
+// @obinexusltd/ocaml-polycall is a source distribution of an OCaml/dune
+// binding of the Polycall binding ABI v1; requiring it from Node.js only
+// indexes the packaged files (build them with dune, see README.md).
 const fs = require('node:fs');
 const path = require('node:path');
 
 const relativeDirectories = Object.freeze({
   src: 'src',
   include: 'include',
-  generated: 'generated',
   dist: 'dist',
   examples: 'examples',
+  test: 'test',
   tests: 'tests',
   scripts: 'scripts'
 });
@@ -60,6 +63,8 @@ function resolve(directoryName, ...segments) {
 
 module.exports = Object.freeze({
   packageName: '@obinexusltd/ocaml-polycall',
+  language: 'OCaml',
+  abi: 1,
   projectRoot: __dirname,
   directories,
   resolve,
@@ -68,9 +73,11 @@ module.exports = Object.freeze({
   runtimeStub: path.join(__dirname, 'src', 'ocaml_polycall_stubs.c'),
   nativeSource: path.join(__dirname, 'src', 'ocaml_polycall.c'),
   nativeHeader: path.join(__dirname, 'include', 'ocaml_polycall.h'),
-  ffiHeader: path.join(__dirname, 'generated', 'polycall', 'polycall_ffi.h'),
+  discover: path.join(__dirname, 'src', 'config', 'discover.ml'),
+  testSuite: path.join(__dirname, 'test', 'test_polycall.ml'),
   config: path.join(__dirname, 'ocaml-polycallrc'),
   manifest: path.join(__dirname, 'polycall-binding.json'),
   duneProject: path.join(__dirname, 'dune-project'),
+  opamFile: path.join(__dirname, 'ocaml-polycall.opam'),
   makefile: path.join(__dirname, 'Makefile')
 });

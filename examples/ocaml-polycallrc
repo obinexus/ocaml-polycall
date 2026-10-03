@@ -1,4 +1,5 @@
-# Example OCaml runtime override
+# Example OCaml runtime override (same grammar as ../ocaml-polycallrc;
+# check it with `polycall config validate examples/ocaml-polycallrc`).
 log_level=debug
 max_connections=128
 network_timeout=2000

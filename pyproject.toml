@@ -1,0 +1,17 @@
+# QA descriptor for the Polycall binding matrix (read by polycall/qa/run_qa.py).
+# This repository is NOT a Python package and is not pip-installable;
+# its native manifest is dune-project (generating ocaml-polycall.opam).
+[tool.polycall.binding]
+name = "ocaml-polycall"
+language = "OCaml"
+native_manifest = "dune-project"
+registry = "npm"
+package = "@obinexusltd/ocaml-polycall"
+abi = 1
+support = "supported"
+linux_image = "ocaml/opam:debian-12-ocaml-5.2"
+build = "dune build"
+test = "sudo sh /qa/build-linux-core.sh && sudo apt-get install -y -qq valgrind && opam install -y dune dune-configurator && export PATH=/opt/polycall/bin:$PATH LD_LIBRARY_PATH=/opt/polycall/lib PKG_CONFIG_PATH=/opt/polycall/lib/pkgconfig && sh scripts/test-linux.sh && make test-valgrind && make test-asan"
+# Windows: NOT YET RUN (no OCaml toolchain on the QA Windows host). Intended
+# command, in an MSYS2 UCRT64 shell with OCaml + dune + dune-configurator:
+windows_test = "PKG_CONFIG_PATH=<core>/lib/pkgconfig PATH=<core>/bin:$PATH POLYCALL_CLI=<core>/bin/polycall.exe dune test --force"

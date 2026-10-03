@@ -1,12 +1,17 @@
 {
   "name": "ocaml-polycall",
-  "version": "1.5.0",
+  "version": "1.0.0",
   "package": "@obinexusltd/ocaml-polycall",
+  "opam": "ocaml-polycall",
   "language": "OCaml",
   "adapter": true,
-  "ffi": true,
+  "ffi": "C stubs (dune foreign_stubs) linked to libpolycall via pkg-config polycall",
+  "abi": 1,
+  "entry_point": "polycall_ffi_run_config",
   "config": "ocaml-polycallrc",
-  "core": "../../src",
+  "core": "polycall >= 1.1.0 (binding ABI 1)",
+  "core_repository": "https://github.com/obinexus/polycall",
+  "repository": "https://github.com/obinexus/ocaml-polycall",
   "license": "MIT",
   "author": "Nnamdi Michael Okpala <okpalan@protonmail.com>"
 }

@@ -1,7 +1,7 @@
 {
   "name": "@obinexusltd/ocaml-polycall",
   "version": "1.0.0",
-  "description": "OCaml source binding for libpolycall 1.5",
+  "description": "OCaml binding for the Polycall C library, binding ABI v1 (polycall >= 1.1.0). Source distribution of a dune project; not a JavaScript library.",
   "main": "index.js",
   "type": "commonjs",
   "exports": {
@@ -9,9 +9,9 @@
     "./package.json": "./package.json",
     "./src/*": "./src/*",
     "./include/*": "./include/*",
-    "./generated/*": "./generated/*",
     "./dist/*": "./dist/*",
     "./examples/*": "./examples/*",
+    "./test/*": "./test/*",
     "./tests/*": "./tests/*",
     "./scripts/*": "./scripts/*",
     "./config": "./ocaml-polycallrc",
@@ -20,11 +20,12 @@
   "files": [
     "index.js",
     "dune-project",
+    "ocaml-polycall.opam",
     "src/",
     "include/",
-    "generated/",
     "dist/",
     "examples/",
+    "test/",
     "tests/",
     "scripts/",
     "Makefile",
@@ -38,21 +39,21 @@
     "lib": "src",
     "src": "src",
     "include": "include",
-    "generated": "generated",
     "dist": "dist",
     "example": "examples",
-    "test": "tests",
+    "test": "test",
     "scripts": "scripts"
   },
   "scripts": {
-    "build": "make",
-    "build:ocaml": "make ocaml",
-    "test": "make test && make test-ocaml-if-available && npm run verify:dry && npm run test:package",
-    "test:ocaml": "make test-ocaml",
+    "build": "dune build",
+    "test": "sh scripts/test-linux.sh",
+    "test:adapter": "make test-adapter",
+    "test:valgrind": "make test-valgrind",
+    "test:asan": "make test-asan",
     "test:package": "node tests/package.test.js",
-    "verify:dry": "make verify-dry",
-    "verify": "npm test",
-    "prepack": "npm test"
+    "verify:dry": "sh scripts/verify-dry.sh",
+    "verify:dry:windows": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-dry.ps1",
+    "prepack": "node tests/package.test.js"
   },
   "repository": {
     "type": "git",
@@ -62,6 +63,7 @@
     "libpolycall",
     "polycall",
     "ocaml",
+    "dune",
     "ffi",
     "native"
   ],
