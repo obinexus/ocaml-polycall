@@ -12,7 +12,7 @@ const manifest = require('../polycall-binding.json');
 
 const escaped = metadata.version.split('.').join('[.]');
 
-assert.equal(metadata.name, '@obinexusltd/ocaml-polycall');
+assert.equal(metadata.name, 'ocaml-polycall');
 assert.equal(binding.packageName, metadata.name);
 assert.equal(metadata.license, 'MIT');
 assert.equal(metadata.publishConfig.access, 'public');

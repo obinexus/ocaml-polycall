@@ -1,5 +1,5 @@
 {
-  "name": "@obinexusltd/ocaml-polycall",
+  "name": "ocaml-polycall",
   "version": "1.0.0",
   "description": "OCaml binding for the Polycall C library, binding ABI v1 (polycall >= 1.1.0). Source distribution of a dune project; not a JavaScript library.",
   "main": "index.js",

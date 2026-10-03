@@ -1,7 +1,7 @@
 {
   "name": "ocaml-polycall",
   "version": "1.0.0",
-  "package": "@obinexusltd/ocaml-polycall",
+  "package": "ocaml-polycall",
   "opam": "ocaml-polycall",
   "language": "OCaml",
   "adapter": true,

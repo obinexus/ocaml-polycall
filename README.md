@@ -3,7 +3,7 @@
 OCaml binding for the [Polycall](https://github.com/obinexus/polycall) core
 library, **binding ABI v1** (`polycall.h`, documented in the core's
 `docs/BINDING_ABI.md`). Also distributed as the npm source package
-`@obinexusltd/ocaml-polycall`.
+`ocaml-polycall`.
 
 The binding is a set of C stubs (`src/ocaml_polycall_stubs.c`) compiled by
 dune and linked against libpolycall through `pkg-config polycall`. It adds no
@@ -134,7 +134,7 @@ only.
 
 ## npm source package
 
-`npm pack` produces `@obinexusltd/ocaml-polycall` with the OCaml/C sources,
+`npm pack` produces `ocaml-polycall` with the OCaml/C sources,
 dune files, tests and configuration (no binaries). Requiring it from Node
 only indexes those files (`index.js`); build it with dune as above.
 

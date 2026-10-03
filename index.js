@@ -1,6 +1,6 @@
 'use strict';
 
-// @obinexusltd/ocaml-polycall is a source distribution of an OCaml/dune
+// ocaml-polycall is a source distribution of an OCaml/dune
 // binding of the Polycall binding ABI v1; requiring it from Node.js only
 // indexes the packaged files (build them with dune, see README.md).
 const fs = require('node:fs');
@@ -62,7 +62,7 @@ function resolve(directoryName, ...segments) {
 }
 
 module.exports = Object.freeze({
-  packageName: '@obinexusltd/ocaml-polycall',
+  packageName: 'ocaml-polycall',
   language: 'OCaml',
   abi: 1,
   projectRoot: __dirname,
