@@ -6,5 +6,20 @@
  (foreign_stubs
   (language c)
   (names ocaml_polycall ocaml_polycall_stubs)
-  (flags (:standard -I../include -I../generated)))
- (c_library_flags -lpolycall))
+  (include_dirs ../include)
+  (flags
+   (:standard -std=c11 -Wall -Wextra (:include c_flags.sexp))))
+ (c_library_flags
+  (:include c_library_flags.sexp)))
+
+; compiler/linker flags for libpolycall: pkg-config polycall, or
+; POLYCALL_CFLAGS + POLYCALL_LIBS (see config/discover.ml)
+
+(rule
+ (targets c_flags.sexp c_library_flags.sexp)
+ (deps
+  (env_var POLYCALL_CFLAGS)
+  (env_var POLYCALL_LIBS)
+  (env_var PKG_CONFIG_PATH))
+ (action
+  (run ./config/discover.exe)))

@@ -1,0 +1,13 @@
+; dune exec examples/basic.exe -- [config-path]
+
+(executable
+ (name basic)
+ (modules basic)
+ (libraries ocaml-polycall))
+
+; cross-binding interop agent: peer_echo.exe peer echo --node-id ID ...
+
+(executable
+ (name peer_echo)
+ (modules peer_echo)
+ (libraries ocaml-polycall))
