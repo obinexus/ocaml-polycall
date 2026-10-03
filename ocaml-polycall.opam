@@ -10,7 +10,7 @@ license: "MIT"
 homepage: "https://github.com/obinexus/ocaml-polycall"
 bug-reports: "https://github.com/obinexus/ocaml-polycall/issues"
 depends: [
-  "dune" {>= "3.8"}
+  "dune" {>= "3.9"}
   "ocaml" {>= "4.14"}
   "dune-configurator"
   "conf-pkg-config"

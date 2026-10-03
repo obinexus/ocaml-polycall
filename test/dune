@@ -16,6 +16,6 @@
 (test
  (name test_domains)
  (modules test_domains)
- (enabled_if
+ (build_if
   (>= %{ocaml_version} 5.0))
  (libraries ocaml-polycall unix))

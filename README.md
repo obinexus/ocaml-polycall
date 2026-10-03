@@ -12,7 +12,7 @@ one call into the core.
 
 ## Requirements
 
-- OCaml >= 4.14 (OCaml 5 adds the domain tests), dune >= 3.8,
+- OCaml >= 4.14 (OCaml 5 adds the domain tests), dune >= 3.9,
   `dune-configurator`, `pkg-config`
 - libpolycall >= 1.1.0 (binding ABI 1) with its `polycall.pc`, e.g. built and
   installed from https://github.com/obinexus/polycall
